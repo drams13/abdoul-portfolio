@@ -25,127 +25,8 @@ import {
   User
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-
-// --- Data ---
-const CONTACT_INFO = {
-  name: "OUATTARA ABDOUL DRAMANE",
-  title: "DÉVELOPPEUR WEB FULL-STACK & MOBILE",
-  email: "ouattaraabdouldramane8@gmail.com",
-  phones: ["05 94 10 65 76", "07 87 83 89 80"],
-  location: "Adjame, Abidjan",
-  linkedin: "https://www.linkedin.com/in/abdoul-dramane-ouattara-a141583a8",
-  github: "https://github.com/drams13"
-};
-
-const SKILLS = [
-  {
-    category: "Langages",
-    icon: <Code2 className="w-6 h-6" />,
-    items: ["Python", "PHP", "Java EE", "JavaScript", "C#", "C", "Dart", "Kotlin"]
-  },
-  {
-    category: "Frameworks & Web",
-    icon: <Globe className="w-6 h-6" />,
-    items: ["Laravel", "React", "Node.js", "Django", "FastAPI"]
-  },
-  {
-    category: "Mobile",
-    icon: <Smartphone className="w-6 h-6" />,
-    items: ["Flutter", "Ionic", "Android Studio"]
-  },
-  {
-    category: "IA & Data",
-    icon: <BrainCircuit className="w-6 h-6" />,
-    items: ["Machine Learning", "PostgreSQL", "MySQL", "MongoDB", "shared_preferences"]
-  },
-  {
-    category: "Design & Outils",
-    icon: <Palette className="w-6 h-6" />,
-    items: ["UI/UX", "Figma", "VS Code", "Cursor", "Agile (Scrum)"]
-  },
-  {
-    category: "Réseaux",
-    icon: <Network className="w-6 h-6" />,
-    items: ["Câblage réseau", "Configuration IP", "Maintenance SI"]
-  }
-];
-
-const MATRIX_SKILLS = [
-  // { name: "Modèles de langage de grande taille", level: 80 },
-  // { name: "IA génératrice", level: 80 },
-  // { name: "Apprentissage profond", level: 75 },
-    // { name: "apprentissage automatique", level: 80 },
-  // { name: "SQL, ETL, Power BI", level: 60 },
-  { name: "Python", level: 75 },
-  { name: "Laravel", level: 60 },
-  { name: "Django", level: 60 },
-  { name: "Flutter", level: 60 },
-    { name: "Android Studio", level: 70 },
-  { name: "React Fullstack", level: 60 },
-  { name: "Node.js", level: 60 },
-];
-
-const EXPERIENCES = [
-  {
-    company: "IDT | Société Ivoirienne de Télédiffusion",
-    period: "Juin 2024 – Mars 2025",
-    location: "Abidjan, Côte d’Ivoire",
-    role: "Stagiaire Développeur & Support IT",
-    description: [
-      "Résolution de plus de 100+ incidents techniques (matériel, logiciels, réseau).",
-      "Maintenance préventive et corrective des systèmes informatiques.",
-      "Conception et développement d'une application de gestion des présences du personnel (Laravel/MySQL)."
-    ]
-  }
-];
-
-const PROJECTS = [
-  {
-    title: "Système IA de Détection Respiratoire",
-    tech: ["Python", "FastAPI", "Node.js"],
-    description: "Développement d’un système IA multicapteurs pour la détection automatisée de maladies respiratoires.",
-    image: "/projects/ia-detection.png"
-  },
-  {
-    title: "Akwaaba Ivoire Quiz",
-    tech: ["Android", "Kotlin", "shared_preferences"],
-    description: "Application mobile alliant culture ivoirienne et jeux éducatifs pour valoriser le patrimoine national.",
-    image: "/projects/akwaaba-quiz.png"
-  },
-  {
-    title: "E-Learning Plateforme",
-    tech: ["Java EE", "Maven", "PostgreSQL"],
-    description: "Plateforme d’apprentissage robuste pour la gestion des cours et des utilisateurs.",
-    image: "/projects/e-learning.png"
-  },
-  {
-    title: "Gestion de Cours Agile",
-    tech: ["React", "Node.js", "Agile"],
-    description: "Application web d'organisation de planning enseignant basée sur la méthodologie Agile.",
-    image: "/projects/gestion-agile.png"
-  }
-];
-
-const EDUCATION = [
-  {
-    degree: "Licence Développeur d’Application Système d’Information (DASI)",
-    school: "ESATIC (École Supérieure Africaine des TIC)",
-    period: "2024 – Présent",
-    location: "Treichville, Abidjan"
-  },
-  {
-    degree: "BTS Informatique Développeur d’Application",
-    school: "Groupe CEFIAT",
-    period: "2021 – 2023",
-    location: "Plateau, Abidjan"
-  },
-  {
-    degree: "Baccalauréat Série Scientifique D",
-    school: "Lycée Moderne Koun-Fao",
-    period: "2020 – 2021",
-    location: "Koun-Fao, Côte d'Ivoire"
-  }
-];
+import ChatBot from './src/components/ChatBot';
+import { CONTACT_INFO, SKILLS, MATRIX_SKILLS, EXPERIENCES, PROJECTS, EDUCATION } from './src/constants';
 
 // --- Components ---
 
@@ -231,17 +112,24 @@ const App = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <section id="accueil" className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section id="accueil" className="relative h-screen flex items-center justify-center overflow-hidden pt-20">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(30,58,138,0.2),transparent_70%)]" />
-        <div className="container mx-auto px-6 relative z-10 text-center">
+        <div className="container mx-auto px-10 relative z-10 text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
           >
-            <span className="inline-block px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold tracking-widest uppercase mb-6">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold tracking-widest uppercase mb-3">
               Disponible pour de nouvelles opportunités
             </span>
+            <div className="mb-15">
+              <img 
+                src="/projects/dra_cv.jpg" 
+                alt="Photo de profil"
+                className="w-32 h-32 rounded-full mx-auto border-4 border-blue-500/30"
+              />
+            </div>
             <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 tracking-tight">
               {CONTACT_INFO.name.split(' ').map((word, i) => (
                 <span key={i} className={i >= 2 ? "text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400" : ""}>
@@ -249,11 +137,11 @@ const App = () => {
                 </span>
               ))}
             </h1>
-            <p className="text-xl md:text-2xl text-slate-400 mb-10 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-slate-400 mb-10 max-w-3xl mx-auto leading-relaxed">
               Je suis spécialisé dans le <span className="text-white font-semibold">Développement Web, Full-Stack & Mobile</span>. De l'abstraction au concret, 
               Je conçois des solutions innovantes alliant performance et expérience utilisateur.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex flex-wrap justify-center gap-5 mb-10">
               <div className="flex gap-4 mb-4 md:mb-0">
                 <a href={CONTACT_INFO.github} target="_blank" className="p-3 rounded-xl bg-slate-900 border border-slate-800 hover:border-blue-500 transition-all text-slate-400 hover:text-blue-400">
                   <Github className="w-6 h-6" />
@@ -269,16 +157,16 @@ const App = () => {
           </motion.div>
         </div>
         
-        {/* Animated background element */}
+        {/* Animated background element
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
           <div className="w-6 h-10 border-2 border-slate-700 rounded-full flex justify-center p-1">
             <div className="w-1.5 h-1.5 bg-slate-500 rounded-full animate-scroll" />
           </div>
-        </div>
+        </div> */}
       </section>
 
       {/* Matrix Skills Section */}
-      <section className="py-16 bg-slate-900/30">
+      <section className="py-16 bg-slate-900/30 mt-8">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left Content */}
@@ -459,7 +347,12 @@ const App = () => {
                 className="p-8 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-blue-500/50 transition-all group"
               >
                 <div className="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 mb-6 group-hover:scale-110 transition-transform">
-                  {skill.icon}
+                  {skill.icon === "Code2" && <Code2 className="w-6 h-6" />}
+                  {skill.icon === "Globe" && <Globe className="w-6 h-6" />}
+                  {skill.icon === "Smartphone" && <Smartphone className="w-6 h-6" />}
+                  {skill.icon === "BrainCircuit" && <BrainCircuit className="w-6 h-6" />}
+                  {skill.icon === "Palette" && <Palette className="w-6 h-6" />}
+                  {skill.icon === "Network" && <Network className="w-6 h-6" />}
                 </div>
                 <h3 className="text-xl font-bold text-white mb-4">{skill.category}</h3>
                 <div className="flex flex-wrap gap-2">
@@ -622,7 +515,7 @@ const App = () => {
                     {project.description}
                   </p>
                   <button className="flex items-center gap-2 text-sm font-bold text-white group-hover:translate-x-2 transition-transform">
-                    En savoir plus <ChevronRight className="w-4 h-4" />
+                    {/* En savoir plus <ChevronRight className="w-4 h-4" /> */}
                   </button>
                 </div>
               </motion.div>
@@ -790,6 +683,7 @@ const App = () => {
           </div>
         </div>
       </footer>
+      <ChatBot />
     </div>
   );
 };

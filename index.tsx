@@ -44,7 +44,7 @@ const Navbar = () => {
         <span className="text-2xl font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
           DR13.DEV
         </span>
-        <div className="hidden md:flex gap-12 text-lg font-medium text-slate-200">
+        <div className="hidden md:flex gap-14 text-lg font-medium text-slate-200">
           {['Accueil', 'Compétences', 'Expérience', 'Projets'].map((item) => (
             <a key={item} href={`#${item.toLowerCase()}`} className="hover:text-blue-400 transition-colors text-xl">
               {item}
@@ -157,12 +157,12 @@ const App = () => {
           </motion.div>
         </div>
         
-        {/* Animated background element
+        {/* Animated background element */}
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
           <div className="w-6 h-10 border-2 border-slate-700 rounded-full flex justify-center p-1">
             <div className="w-1.5 h-1.5 bg-slate-500 rounded-full animate-scroll" />
           </div>
-        </div> */}
+        </div>
       </section>
 
       {/* Matrix Skills Section */}

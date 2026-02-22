@@ -39,21 +39,21 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-slate-900/90 backdrop-blur-md py-3 shadow-lg' : 'bg-transparent py-5'}`}>
+    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-slate-900/90 backdrop-blur-md py-4 shadow-lg' : 'bg-transparent py-6'}`}>
       <div className="container mx-auto px-6 flex justify-between items-center">
-        <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">
+        <span className="text-2xl font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
           DR13.DEV
         </span>
-        <div className="hidden md:flex gap-12 text-base font-medium text-slate-300">
+        <div className="hidden md:flex gap-25 text-lg font-medium text-slate-200">
           {['Accueil', 'Compétences', 'Expérience', 'Projets'].map((item) => (
-            <a key={item} href={`#${item.toLowerCase()}`} className="hover:text-blue-400 transition-colors text-lg">
+            <a key={item} href={`#${item.toLowerCase()}`} className="hover:text-blue-400 transition-colors text-xl">
               {item}
             </a>
           ))}
         </div>
         <a 
           href="#contact"
-          className="px-5 py-2 rounded-full bg-blue-600 hover:bg-blue-500 text-white text-sm font-bold transition-all transform hover:scale-105"
+          className="px-6 py-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white text-base font-bold transition-all transform hover:scale-105"
         >
           Contactez-moi
         </a>

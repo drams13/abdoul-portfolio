@@ -120,10 +120,10 @@ const App = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
           >
-            <span className="inline-block px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold tracking-widest uppercase mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold tracking-widest uppercase mb-2">
               Disponible pour de nouvelles opportunités
             </span>
-            <div className="mb-6">
+            <div className="mb-4">
               <img 
                 src="/projects/dra_cv.jpg" 
                 alt="Photo de profil"
@@ -157,12 +157,12 @@ const App = () => {
           </motion.div>
         </div>
         
-        {/* Animated background element */}
+        {/* Animated background element
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
           <div className="w-6 h-10 border-2 border-slate-700 rounded-full flex justify-center p-1">
             <div className="w-1.5 h-1.5 bg-slate-500 rounded-full animate-scroll" />
           </div>
-        </div>
+        </div> */}
       </section>
 
       {/* Matrix Skills Section */}

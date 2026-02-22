@@ -120,10 +120,10 @@ const App = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
           >
-            <span className="inline-block px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold tracking-widest uppercase mb-2">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold tracking-widest uppercase mb-10">
               Disponible pour de nouvelles opportunités
             </span>
-            <div className="mb-4">
+            <div className="mb-6">
               <img 
                 src="/projects/dra_cv.jpg" 
                 alt="Photo de profil"

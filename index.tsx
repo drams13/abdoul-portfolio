@@ -44,9 +44,9 @@ const Navbar = () => {
         <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">
           DR13.DEV
         </span>
-        <div className="hidden md:flex gap-8 text-sm font-medium text-slate-300">
+        <div className="hidden md:flex gap-12 text-base font-medium text-slate-300">
           {['Accueil', 'Compétences', 'Expérience', 'Projets'].map((item) => (
-            <a key={item} href={`#${item.toLowerCase()}`} className="hover:text-blue-400 transition-colors">
+            <a key={item} href={`#${item.toLowerCase()}`} className="hover:text-blue-400 transition-colors text-lg">
               {item}
             </a>
           ))}
@@ -127,7 +127,7 @@ const App = () => {
               <img 
                 src="/projects/dra_cv.jpg" 
                 alt="Photo de profil"
-                className="w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-full mx-auto border-4 border-blue-500/30 object-cover"
+                className="w-36 h-36 sm:w-40 sm:h-40 md:w-44 md:h-44 rounded-full mx-auto border-4 border-blue-500/30 object-cover"
               />
             </div>
             <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 tracking-tight">

@@ -32,6 +32,8 @@ import { CONTACT_INFO, SKILLS, MATRIX_SKILLS, EXPERIENCES, PROJECTS, EDUCATION }
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
@@ -40,36 +42,95 @@ const Navbar = () => {
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-slate-900/90 backdrop-blur-md py-4 shadow-lg' : 'bg-transparent py-6'}`}>
-      <div className="container mx-auto px-6 flex justify-between items-center">
-        <span className="text-2xl font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
+      <div className="container mx-auto px-4 sm:px-6 flex justify-between items-center">
+        <span className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
           DR13.DEV
         </span>
-        <div className="hidden md:flex gap-16 text-xl font-medium text-slate-200">
+        
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex gap-8 lg:gap-16 text-lg lg:text-xl font-medium text-slate-200">
           {['Accueil', 'Compétences', 'Expérience', 'Projets'].map((item) => (
-            <a key={item} href={`#${item.toLowerCase()}`} className="hover:text-blue-400 transition-colors text-2xl">
+            <a key={item} href={`#${item.toLowerCase()}`} className="hover:text-blue-400 transition-colors text-lg lg:text-2xl">
               {item}
             </a>
           ))}
         </div>
-        <div className="flex items-center gap-4">
+        
+        {/* Desktop Buttons */}
+        <div className="hidden md:flex items-center gap-3 lg:gap-4">
           <a 
             href="#contact"
-            className="px-6 py-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white text-base font-bold transition-all transform hover:scale-105"
+            className="px-4 lg:px-6 py-2 lg:py-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white text-sm lg:text-base font-bold transition-all transform hover:scale-105"
           >
             Contactez-moi
           </a>
           <a 
             href="/cv/ouattara_cv.pdf" 
             target="_blank"
-            className="px-4 py-2 rounded-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white text-sm font-bold transition-all transform hover:scale-105"
+            className="px-3 lg:px-4 py-2 lg:py-2 rounded-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white text-xs lg:text-sm font-bold transition-all transform hover:scale-105"
           >
-            <span className="flex items-center gap-2">
-              <Download className="w-4 h-4" />
-              Télécharger CV
+            <span className="flex items-center gap-1 lg:gap-2">
+              <Download className="w-3 h-3 lg:w-4 lg:h-4" />
+              <span className="hidden sm:inline">Télécharger CV</span>
+              <span className="sm:hidden">CV</span>
             </span>
           </a>
         </div>
+
+        {/* Mobile Menu Button */}
+        <button 
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="md:hidden p-2 rounded-lg text-slate-200 hover:text-blue-400 transition-colors"
+        >
+          <div className="w-6 h-0.5 bg-current mb-1.5"></div>
+          <div className="w-6 h-0.5 bg-current mb-1.5"></div>
+          <div className="w-6 h-0.5 bg-current"></div>
+        </button>
       </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden bg-slate-900/95 backdrop-blur-md border-t border-slate-800"
+          >
+            <div className="container mx-auto px-4 py-4 space-y-3">
+              {['Accueil', 'Compétences', 'Expérience', 'Projets'].map((item) => (
+                <a 
+                  key={item} 
+                  href={`#${item.toLowerCase()}`} 
+                  className="block py-2 text-lg font-medium text-slate-200 hover:text-blue-400 transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {item}
+                </a>
+              ))}
+              <div className="pt-3 space-y-2">
+                <a 
+                  href="#contact"
+                  className="block w-full px-4 py-2 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white text-sm font-bold transition-all transform hover:scale-105 text-center"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Contactez-moi
+                </a>
+                <a 
+                  href="/cv/ouattara_cv.pdf" 
+                  target="_blank"
+                  className="block w-full px-4 py-2 rounded-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white text-sm font-bold transition-all transform hover:scale-105 text-center"
+                >
+                  <span className="flex items-center justify-center gap-2">
+                    <Download className="w-4 h-4" />
+                    Télécharger CV
+                  </span>
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };

@@ -51,12 +51,24 @@ const Navbar = () => {
             </a>
           ))}
         </div>
-        <a 
-          href="#contact"
-          className="px-6 py-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white text-base font-bold transition-all transform hover:scale-105"
-        >
-          Contactez-moi
-        </a>
+        <div className="flex items-center gap-4">
+          <a 
+            href="#contact"
+            className="px-6 py-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white text-base font-bold transition-all transform hover:scale-105"
+          >
+            Contactez-moi
+          </a>
+          <a 
+            href="/cv/ouattara_cv.pdf" 
+            target="_blank"
+            className="px-4 py-2 rounded-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white text-sm font-bold transition-all transform hover:scale-105"
+          >
+            <span className="flex items-center gap-2">
+              <Download className="w-4 h-4" />
+              Télécharger CV
+            </span>
+          </a>
+        </div>
       </div>
     </nav>
   );

@@ -97,7 +97,7 @@ export const EDUCATION = [
   {
     degree: "Licence Développeur d’Application Système d’Information (DASI)",
     school: "ESATIC (École Supérieure Africaine des TIC)",
-    period: "2024 – Présent",
+    period: "2025 - 2026 – Présent",
     location: "Treichville, Abidjan"
   },
   {

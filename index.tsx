@@ -103,7 +103,14 @@ const Navbar = () => {
                   key={item} 
                   href={`#${item.toLowerCase()}`} 
                   className="block py-2 text-lg font-medium text-slate-200 hover:text-blue-400 transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    // Smooth scroll to section
+                    const element = document.querySelector(`#${item.toLowerCase()}`);
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
                 >
                   {item}
                 </a>
@@ -112,7 +119,14 @@ const Navbar = () => {
                 <a 
                   href="#contact"
                   className="block w-full px-4 py-2 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white text-sm font-bold transition-all transform hover:scale-105 text-center"
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    // Smooth scroll to contact section
+                    const element = document.querySelector('#contact');
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
                 >
                   Contactez-moi
                 </a>
@@ -223,7 +237,7 @@ const App = () => {
                   <Linkedin className="w-6 h-6" />
                 </a>
               </div>
-              <a href="#projets" className="px-8 py-4 rounded-xl bg-white text-slate-950 font-bold hover:bg-blue-50 transition-all shadow-xl shadow-white/5">
+              <a href="#projets" className="px-6 sm:px-8 py-3 sm:py-4 rounded-xl bg-white text-slate-950 font-bold hover:bg-blue-50 transition-all shadow-xl shadow-white/5 text-sm sm:text-base">
                 Voir mes projets
               </a>
             </div>

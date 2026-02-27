@@ -110,40 +110,48 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-slate-900/95 backdrop-blur-md border-t border-slate-800"
+            className="md:hidden fixed inset-x-0 top-16 bg-slate-900/98 backdrop-blur-lg border-t border-slate-700 shadow-2xl z-40"
           >
-            <div className="container mx-auto px-4 py-4 space-y-3">
-              {['Accueil', 'Compétences', 'Expérience', 'Projets'].map((item) => (
-                <a 
-                  key={item} 
-                  href={`#${item.toLowerCase()}`} 
-                  className="block py-3 text-lg font-medium text-slate-200 hover:text-blue-400 transition-colors cursor-pointer touch-manipulation"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setMobileMenuOpen(false);
-                    // Smooth scroll to section
-                    const element = document.querySelector(`#${item.toLowerCase()}`);
-                    if (element) {
-                      element.scrollIntoView({ behavior: 'smooth' });
-                    }
-                  }}
-                  onTouchEnd={(e) => {
-                    e.preventDefault();
-                    setMobileMenuOpen(false);
-                    // Smooth scroll to section
-                    const element = document.querySelector(`#${item.toLowerCase()}`);
-                    if (element) {
-                      element.scrollIntoView({ behavior: 'smooth' });
-                    }
-                  }}
-                >
-                  {item}
-                </a>
-              ))}
-              <div className="pt-3 space-y-2">
+            <div className="px-4 py-6 space-y-2">
+              {/* Navigation Links */}
+              <div className="space-y-1">
+                {['Accueil', 'Compétences', 'Expérience', 'Projets'].map((item) => (
+                  <a 
+                    key={item} 
+                    href={`#${item.toLowerCase()}`} 
+                    className="block px-4 py-3 text-lg font-medium text-slate-200 hover:text-blue-400 hover:bg-slate-800/50 rounded-lg transition-all cursor-pointer touch-manipulation"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setMobileMenuOpen(false);
+                      // Smooth scroll to section
+                      const element = document.querySelector(`#${item.toLowerCase()}`);
+                      if (element) {
+                        element.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }}
+                    onTouchEnd={(e) => {
+                      e.preventDefault();
+                      setMobileMenuOpen(false);
+                      // Smooth scroll to section
+                      const element = document.querySelector(`#${item.toLowerCase()}`);
+                      if (element) {
+                        element.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }}
+                  >
+                    {item}
+                  </a>
+                ))}
+              </div>
+              
+              {/* Divider */}
+              <div className="border-t border-slate-700 my-4"></div>
+              
+              {/* Action Buttons */}
+              <div className="space-y-3 px-2">
                 <a 
                   href="#contact"
-                  className="block w-full px-4 py-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white text-sm font-bold transition-all transform hover:scale-105 text-center cursor-pointer touch-manipulation"
+                  className="block w-full px-4 py-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white text-base font-bold transition-all transform hover:scale-105 text-center cursor-pointer touch-manipulation shadow-lg"
                   onClick={(e) => {
                     e.preventDefault();
                     setMobileMenuOpen(false);
@@ -168,7 +176,7 @@ const Navbar = () => {
                 <a 
                   href="/cv/ouattara_cv.pdf" 
                   target="_blank"
-                  className="block w-full px-4 py-3 rounded-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white text-sm font-bold transition-all transform hover:scale-105 text-center cursor-pointer touch-manipulation"
+                  className="block w-full px-4 py-3 rounded-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white text-base font-bold transition-all transform hover:scale-105 text-center cursor-pointer touch-manipulation shadow-lg"
                 >
                   <span className="flex items-center justify-center gap-2">
                     <Download className="w-4 h-4" />

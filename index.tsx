@@ -91,7 +91,11 @@ const Navbar = () => {
         {/* Mobile Menu Button */}
         <button 
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 rounded-lg text-slate-200 hover:text-blue-400 transition-colors"
+          onTouchEnd={(e) => {
+            e.preventDefault();
+            setMobileMenuOpen(!mobileMenuOpen);
+          }}
+          className="md:hidden p-2 rounded-lg text-slate-200 hover:text-blue-400 transition-colors touch-manipulation"
         >
           <div className="w-6 h-0.5 bg-current mb-1.5"></div>
           <div className="w-6 h-0.5 bg-current mb-1.5"></div>
@@ -113,8 +117,17 @@ const Navbar = () => {
                 <a 
                   key={item} 
                   href={`#${item.toLowerCase()}`} 
-                  className="block py-2 text-lg font-medium text-slate-200 hover:text-blue-400 transition-colors"
+                  className="block py-3 text-lg font-medium text-slate-200 hover:text-blue-400 transition-colors cursor-pointer touch-manipulation"
                   onClick={(e) => {
+                    e.preventDefault();
+                    setMobileMenuOpen(false);
+                    // Smooth scroll to section
+                    const element = document.querySelector(`#${item.toLowerCase()}`);
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                  onTouchEnd={(e) => {
                     e.preventDefault();
                     setMobileMenuOpen(false);
                     // Smooth scroll to section
@@ -130,8 +143,18 @@ const Navbar = () => {
               <div className="pt-3 space-y-2">
                 <a 
                   href="#contact"
-                  className="block w-full px-4 py-2 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white text-sm font-bold transition-all transform hover:scale-105 text-center"
-                  onClick={() => {
+                  className="block w-full px-4 py-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white text-sm font-bold transition-all transform hover:scale-105 text-center cursor-pointer touch-manipulation"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setMobileMenuOpen(false);
+                    // Smooth scroll to contact section
+                    const element = document.querySelector('#contact');
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                  onTouchEnd={(e) => {
+                    e.preventDefault();
                     setMobileMenuOpen(false);
                     // Smooth scroll to contact section
                     const element = document.querySelector('#contact');
@@ -145,7 +168,7 @@ const Navbar = () => {
                 <a 
                   href="/cv/ouattara_cv.pdf" 
                   target="_blank"
-                  className="block w-full px-4 py-2 rounded-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white text-sm font-bold transition-all transform hover:scale-105 text-center"
+                  className="block w-full px-4 py-3 rounded-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white text-sm font-bold transition-all transform hover:scale-105 text-center cursor-pointer touch-manipulation"
                 >
                   <span className="flex items-center justify-center gap-2">
                     <Download className="w-4 h-4" />

@@ -50,7 +50,18 @@ const Navbar = () => {
         {/* Desktop Navigation */}
         <div className="hidden md:flex gap-8 lg:gap-16 text-lg lg:text-xl font-medium text-slate-200">
           {['Accueil', 'Compétences', 'Expérience', 'Projets'].map((item) => (
-            <a key={item} href={`#${item.toLowerCase()}`} className="hover:text-blue-400 transition-colors text-lg lg:text-2xl">
+            <a 
+              key={item} 
+              href={`#${item.toLowerCase()}`} 
+              className="hover:text-blue-400 transition-colors text-lg lg:text-2xl"
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.querySelector(`#${item.toLowerCase()}`);
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+            >
               {item}
             </a>
           ))}

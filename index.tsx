@@ -114,7 +114,8 @@ const Navbar = () => {
                   key={item} 
                   href={`#${item.toLowerCase()}`} 
                   className="block py-2 text-lg font-medium text-slate-200 hover:text-blue-400 transition-colors"
-                  onClick={() => {
+                  onClick={(e) => {
+                    e.preventDefault();
                     setMobileMenuOpen(false);
                     // Smooth scroll to section
                     const element = document.querySelector(`#${item.toLowerCase()}`);

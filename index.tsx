@@ -244,11 +244,11 @@ const App = () => {
       transition={{ duration: 0.5 }}
       className="space-y-4 sm:space-y-6 md:space-y-8"
     >
-      <span className="inline-block px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] sm:text-xs font-bold tracking-widest uppercase">
+      <span className="inline-block px-5 sm:px-6 py-1 sm:py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] sm:text-xs font-bold tracking-widest uppercase  mt-50">
         Disponible pour de nouvelles opportunités
       </span>
       
-      <div className="mb-4 sm:mb-6">
+      <div className="mb-10 sm:mb-10">
         <img 
           src="/projects/dra_cv.jpg" 
           alt="Photo de profil"
@@ -264,21 +264,21 @@ const App = () => {
         ))}
       </h1>
       
-      <p className="text-sm sm:text-lg md:text-3xl text-slate-400 max-w-3xl mx-auto leading-relaxed px-2">
+      <p className="text-2xl sm:text-lg md:text-3xl text-slate-400 max-w-3xl mx-auto leading-relaxed px-2">
         Je suis spécialisé dans le <span className="text-white font-semibold">Développement Web, Full-Stack & Mobile</span>. De l'abstraction au concret, 
         Je conçois des solutions innovantes alliant performance et expérience utilisateur.
       </p>
       
       <div className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-3 sm:gap-5">
-        <div className="flex gap-3 sm:gap-4">
+        <div className="flex gap-8 sm:gap-10">
           <a href={CONTACT_INFO.github} target="_blank" className="p-2.5 sm:p-3 rounded-xl bg-slate-900 border border-slate-800 hover:border-blue-500 transition-all text-slate-400 hover:text-blue-400">
-            <Github className="w-5 h-5 sm:w-6 sm:h-6" />
+            <Github className="w-8 h-8 sm:w-6 sm:h-6" />
           </a>
           <a href={CONTACT_INFO.linkedin} target="_blank" className="p-2.5 sm:p-3 rounded-xl bg-slate-900 border border-slate-800 hover:border-blue-500 transition-all text-slate-400 hover:text-blue-400">
-            <Linkedin className="w-5 h-5 sm:w-6 sm:h-6" />
+            <Linkedin className="w-8 h-8 sm:w-6 sm:h-6" />
           </a>
         </div>
-        <a href="#projets" className="px-5 sm:px-8 py-2.5 sm:py-4 rounded-xl bg-white text-slate-950 font-bold hover:bg-blue-50 transition-all shadow-xl shadow-white/5 text-xs sm:text-base whitespace-nowrap">
+        <a href="#projets" className="px-6 sm:px-8 py-3 sm:py-4 rounded-xl bg-white text-slate-950 font-bold hover:bg-blue-400 transition-all shadow-xl shadow-white/5 text-xm sm:text-base whitespace-nowrap mt-8">
           Voir mes projets
         </a>
       </div>

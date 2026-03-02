@@ -232,8 +232,61 @@ const App = () => {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-200 font-sans selection:bg-blue-500/30">
       <Navbar />
+      
 
-      {/* Hero Section */}
+     {/* Hero Section */}
+<section id="accueil" className="relative min-h-screen md:h-screen flex items-center justify-center overflow-hidden pt-20 md:pt-0 pb-12 md:pb-0">
+  <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(30,58,138,0.2),transparent_70%)]" />
+  <div className="container mx-auto px-4 sm:px-6 md:px-10 relative z-10 text-center">
+    <motion.div
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5 }}
+      className="space-y-4 sm:space-y-6 md:space-y-8"
+    >
+      <span className="inline-block px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] sm:text-xs font-bold tracking-widest uppercase">
+        Disponible pour de nouvelles opportunités
+      </span>
+      
+      <div className="mb-4 sm:mb-6">
+        <img 
+          src="/projects/dra_cv.jpg" 
+          alt="Photo de profil"
+          className="w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 rounded-full mx-auto border-4 border-blue-500/30 object-cover"
+        />
+      </div>
+      
+      <h1 className="text-3xl sm:text-5xl md:text-7xl font-extrabold text-white tracking-tight">
+        {CONTACT_INFO.name.split(' ').map((word, i) => (
+          <span key={i} className={i >= 2 ? "text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400" : ""}>
+            {word}{" "}
+          </span>
+        ))}
+      </h1>
+      
+      <p className="text-sm sm:text-lg md:text-3xl text-slate-400 max-w-3xl mx-auto leading-relaxed px-2">
+        Je suis spécialisé dans le <span className="text-white font-semibold">Développement Web, Full-Stack & Mobile</span>. De l'abstraction au concret, 
+        Je conçois des solutions innovantes alliant performance et expérience utilisateur.
+      </p>
+      
+      <div className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-3 sm:gap-5">
+        <div className="flex gap-3 sm:gap-4">
+          <a href={CONTACT_INFO.github} target="_blank" className="p-2.5 sm:p-3 rounded-xl bg-slate-900 border border-slate-800 hover:border-blue-500 transition-all text-slate-400 hover:text-blue-400">
+            <Github className="w-5 h-5 sm:w-6 sm:h-6" />
+          </a>
+          <a href={CONTACT_INFO.linkedin} target="_blank" className="p-2.5 sm:p-3 rounded-xl bg-slate-900 border border-slate-800 hover:border-blue-500 transition-all text-slate-400 hover:text-blue-400">
+            <Linkedin className="w-5 h-5 sm:w-6 sm:h-6" />
+          </a>
+        </div>
+        <a href="#projets" className="px-5 sm:px-8 py-2.5 sm:py-4 rounded-xl bg-white text-slate-950 font-bold hover:bg-blue-50 transition-all shadow-xl shadow-white/5 text-xs sm:text-base whitespace-nowrap">
+          Voir mes projets
+        </a>
+      </div>
+    </motion.div>
+  </div>
+  </section>
+
+      {/* Hero Section
       <section id="accueil" className="relative h-screen flex items-center justify-center overflow-hidden pt-20">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(30,58,138,0.2),transparent_70%)]" />
         <div className="container mx-auto px-10 relative z-10 text-center">
@@ -277,7 +330,7 @@ const App = () => {
               </a>
             </div>
           </motion.div>
-        </div>
+        </div> */}
         
         {/* Animated background element
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
@@ -285,7 +338,7 @@ const App = () => {
             <div className="w-1.5 h-1.5 bg-slate-500 rounded-full animate-scroll" />
           </div>
         </div> */}
-      </section>
+      {/* </section> */}
 
       {/* Matrix Skills Section */}
       <section className="py-16 bg-slate-900/30 mt-8">
